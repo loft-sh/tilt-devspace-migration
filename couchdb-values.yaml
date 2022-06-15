@@ -1,0 +1,8 @@
+clusterSize: 1
+adminUsername: admin
+adminPassword: this_is_not_secure
+couchdbConfig:
+  couchdb:
+    uuid: e9a1c01d-68b1-46f5-ae20-fad6091be9f6
+chttpd:
+  bind_address: 127.0.0.1

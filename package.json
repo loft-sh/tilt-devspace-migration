@@ -1,0 +1,22 @@
+{
+  "name": "tilt-devspace-migration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/loft-sh/tilt-devspace-migration.git"
+  },
+  "author": "lianmakesthings",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loft-sh/tilt-devspace-migration/issues"
+  },
+  "homepage": "https://github.com/loft-sh/tilt-devspace-migration#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
