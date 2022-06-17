@@ -2,6 +2,7 @@ FROM node:18-alpine3.15
 
 # Set working directory
 WORKDIR /app
+RUN npm i -g nodemon
 
 # Add package.json to WORKDIR and install dependencies
 COPY package*.json ./

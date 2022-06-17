@@ -24,7 +24,8 @@ docker_build('migration-nodejs-image', '.',
                 # Execute commands inside the container when certain
                 # paths change
                 run('npm install', trigger=['./package.json'])
-             ]
+             ],
+              entrypoint=["/bin/sh", "-c", "npm run dev"]
 )
 
 k8s_yaml('deployment.yaml')
