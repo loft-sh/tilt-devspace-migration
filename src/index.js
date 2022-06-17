@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
                 <h1>Hi there</h1>
                 <div>
                     <p><mark>This</mark> is some text</p>
+                    <p><mark>This</mark> is some other text</p>
                 </div>
             </div>
         </body>

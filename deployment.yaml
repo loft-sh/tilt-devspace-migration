@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: migration-nodejs
+  labels:
+    app: migration-nodejs
+spec:
+  selector:
+    matchLabels:
+      app: migration-nodejs
+  template:
+    metadata:
+      labels:
+        app: migration-nodejs
+    spec:
+      containers:
+        - name: migration-nodejs
+          image: migration-nodejs-image
+          ports:
+            - containerPort: 3000

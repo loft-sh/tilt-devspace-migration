@@ -15,23 +15,20 @@ local_resource('create-system-dbs',
 #
 #   More info: https://docs.tilt.dev/api.html#api.docker_build
 #
-# docker_build('registry.example.com/my-image',
-#              context='.',
-#              # (Optional) Use a custom Dockerfile path
-#              dockerfile='./deploy/app.dockerfile',
-#              # (Optional) Filter the paths used in the build
-#              only=['./app'],
-#              # (Recommended) Updating a running container in-place
-#              # https://docs.tilt.dev/live_update_reference.html
-#              live_update=[
-#                 # Sync files from host to container
-#                 sync('./app', '/src/'),
-#                 # Execute commands inside the container when certain
-#                 # paths change
-#                 run('/src/codegen.sh', trigger=['./app/api'])
-#              ]
-# )
+docker_build('migration-nodejs-image', '.',
+             # (Recommended) Updating a running container in-place
+             # https://docs.tilt.dev/live_update_reference.html
+             live_update=[
+                # Sync files from host to container
+                sync('./src', '/app/'),
+                # Execute commands inside the container when certain
+                # paths change
+                run('npm install', trigger=['./package.json'])
+             ]
+)
 
+k8s_yaml('deployment.yaml')
+k8s_resource('migration-nodejs', port_forwards=3000)
 
 # Apply Kubernetes manifests
 #   Tilt will build & push any necessary images, re-deploying your
